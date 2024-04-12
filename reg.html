@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Registration Form</title>
+
+</head>
+
+<body style="background-image: url('https://png.pngtree.com/background/20210714/original/pngtree-minimal-scene-with-geometrical-forms-picture-image_1252173.jpg'); background-size: 115%; background-position: center; text-align: center;">
+
+<header>
+
+<h1><b>Welcome to the Registration Form</b></h1>
+
+<p><b>Fill out the form below to register.</b></p>
+
+</header>
+
+<form id="registrationForm" style="display: inline-block; text-align: left;" onsubmit="submitForm(event)">
+
+<label for="name"><b>Name:</b></label>
+
+<input type="text" id="name" required><br><br>
+
+<label for="fatherName"><b>Father's Name:</b></label>
+
+<input type="text" id="fatherName" required><br><br>
+
+<label for="motherName"><b>Mother's Name:</b></label>
+
+<input type="text" id="motherName" required><br><br>
+
+<label for="dob"><b>Date of Birth:</b></label>
+
+<input type="date" id="dob" required><br><br>
+
+<label for="percentage"><b>Percentage:</b></label>
+
+<input type="number" id="percentage" min="0" max="100" required><br><br>
+
+<label for="graduationYear"><b>Year of Graduation:</b></label>
+
+<input type="number" id="graduationYear" min="1900" max="2099" required><br><br>
+
+<label for="address"><b>Address:</b></label>
+
+<textarea id="address" rows="4" cols="50" required></textarea><br><br>
+
+<label><b>Gender:</b></label>
+
+<input type="radio" id="male" name="gender" value="Male" required>
+
+<label for="male"><b>Male</b></label>
+
+<input type="radio" id="female" name="gender" value="Female" required>
+
+<label for="female"><b>Female</b></label>
+
+<input type="radio" id="other" name="gender" value="Other" required>
+
+<label for="other"><b>Other</b></label><br><br>
+
+<label for="nationality"><b>Nationality:</b></label>
+
+<select id="nationality" onchange="populateStates()" required>
+
+<option value="">Select Nationality</option>
+
+<option value="Indian">Indian</option>
+
+<option value="American">American</option>
+
+<option value="British">British</option>
+
+</select><br><br>
+
+<label for="state"><b>State:</b></label>
+
+<select id="state" onchange="populateCities()" required>
+
+<option value="">Select State</option>
+
+</select><br><br>
+
+<label for="city"><b>City:</b></label>
+
+<select id="city" required>
+
+<option value="">Select City</option>
+
+</select><br><br>
+
+<label for="hobbies"><b>Hobbies:</b></label><br>
+
+<input type="checkbox" id="hobby1" value="Reading">
+
+<label for="hobby1"><b>Reading</b></label><br>
+
+<input type="checkbox" id="hobby2" value="Gardening">
+
+<label for="hobby2"><b>Gardening</b></label><br>
+
+<input type="checkbox" id="hobby3" value="Traveling">
+
+<label for="hobby3"><b>Traveling</b></label><br>
+
+<br><br>
+
+<button type="submit">Register</button>
+
+</form>
+
+<div id="successMessage" style="display: none;">
+
+<h2>Successfully Registered!</h2>
+
+<p>Thank you for registering.</p>
+
+</div>
+
+<footer>
+
+<p><b>&copy; 2024 Registration Form - Designed by @DHARSHINI</b></p>
+
+</footer>
+
+<script>
+
+function populateStates() {
+
+let nationality = document.getElementById('nationality').value;
+
+let stateDropdown = document.getElementById('state');
+
+if (nationality === 'Indian') {
+
+let states = ['Select State', 'Maharashtra', 'Karnataka', 'Gujarat', 'Tamil Nadu'];
+
+for (let state of states) {
+
+let option = document.createElement('option');
+
+option.text = state;
+
+stateDropdown.add(option);
+
+}
+
+} else if (nationality === 'American') {
+
+let states = ['Select State', 'California', 'New York', 'Texas', 'Florida'];
+
+for (let state of states) {
+
+let option = document.createElement('option');
+
+option.text = state;
+
+stateDropdown.add(option);
+
+}
+
+}
+
+}
+
+function populateCities() {
+
+let state = document.getElementById('state').value;
+
+let cityDropdown = document.getElementById('city');
+
+if (state === 'Maharashtra') {
+
+let cities = ['Select City', 'Mumbai', 'Pune', 'Nagpur', 'Nashik'];
+
+for (let city of cities) {
+
+let option = document.createElement('option');
+
+option.text = city;
+
+cityDropdown.add(option);
+
+}
+
+} else if (state === 'Karnataka') {
+
+let cities = ['Select City', 'Bangalore', 'Mysore', 'Hubli', 'Mangalore'];
+
+for (let city of cities) {
+
+let option = document.createElement('option');
+
+option.text = city;
+
+cityDropdown.add(option);
+
+}
+
+} else if (state === 'Tamil Nadu') {
+
+let cities = ['Select City', 'Chennai', 'Coimbatore', 'Madurai', 'Tiruchirappalli', 'Virudhunagar', 'Thanjavur'];
+
+for (let city of cities) {
+
+let option = document.createElement('option');
+
+option.text = city;
+
+cityDropdown.add(option);
+
+}
+
+}
+
+}
+
+function submitForm(event) {
+
+event.preventDefault();
+
+document.getElementById("registrationForm").style.display = "none";
+
+document.getElementById("successMessage").style.display = "block";
+
+}
+
+</script>
+
+</body>
+
+</html>
